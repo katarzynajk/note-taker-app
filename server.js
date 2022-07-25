@@ -15,3 +15,9 @@ app.get("/notes", (req, res) =>
 app.listen(PORT, () =>
   console.log(`Example app listening at http://localhost:${PORT}`)
 );
+
+// [GET] find all notes
+app.get("/api/notes", (req, res) => {
+  res.status(200).json(`${req.method} request received`);
+  console.info(`${req.method} request received`);
+});
