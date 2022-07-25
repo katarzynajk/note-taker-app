@@ -1,0 +1,23 @@
+{
+  "name": "note-taker-app",
+  "version": "1.0.0",
+  "description": "The application to create, save and delete notes, using Node and Express",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katarzynajk/note-taker-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/katarzynajk/note-taker-app/issues"
+  },
+  "homepage": "https://github.com/katarzynajk/note-taker-app#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
