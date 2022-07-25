@@ -28,6 +28,14 @@
         "header": []
       },
       "response": []
+    },
+    {
+      "name": "delete note",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
     }
   ]
 }

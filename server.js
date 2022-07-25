@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-const { readFromFile, readAndAppend } = require("./utils/fs");
+const { readFromFile, readAndAppend, writeToFile } = require("./utils/fs");
 const { v4: uuidv4 } = require("uuid");
 
 const app = express();
@@ -43,6 +43,22 @@ app.post("/api/notes", (req, res) => {
 
     readAndAppend(newNote, "./db/db.json");
     res.status(200).json(newNote);
+  } else {
+    res.error("Error in adding note");
+  }
+  console.info(`${req.method} request received`);
+});
+
+// [DELETE] delete note
+app.delete("/api/notes", (req, res) => {
+  const hasParam = Object.keys(req.query).length > 0;
+
+  if (hasParam && req.query.id !== "") {
+    const data = require("./db/db.json");
+    for (let [i, e] of data.entries())
+      if (e.id === req.query.id) data.splice(i, 1);
+    writeToFile("./db/db.json", JSON.parse(JSON.stringify(data)));
+    res.status(200).json(req.query);
   } else {
     res.error("Error in adding note");
   }
