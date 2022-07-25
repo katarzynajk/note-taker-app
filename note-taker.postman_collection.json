@@ -1,0 +1,33 @@
+{
+  "info": {
+    "_postman_id": "e6687c8f-7f7c-47d7-afa9-6a2897bec4f4",
+    "name": "note-taker",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "6195609"
+  },
+  "item": [
+    {
+      "name": "find all notes",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3001/api/notes",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3001",
+          "path": ["api", "notes"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create note",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    }
+  ]
+}
