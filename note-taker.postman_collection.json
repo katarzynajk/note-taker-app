@@ -24,16 +24,39 @@
     {
       "name": "create note",
       "request": {
-        "method": "GET",
-        "header": []
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"Test 2 Title\",\r\n    \"text\": \"Test 2 text\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3001/api/notes",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3001",
+          "path": ["api", "notes"]
+        }
       },
       "response": []
     },
     {
       "name": "delete note",
       "request": {
-        "method": "GET",
-        "header": []
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3001/api/notes/9522b065-5599-45fd-a68d-70fccc7af3cc",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3001",
+          "path": ["api", "notes", "9522b065-5599-45fd-a68d-70fccc7af3cc"]
+        }
       },
       "response": []
     }
