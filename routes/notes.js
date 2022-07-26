@@ -2,11 +2,17 @@ const notes = require("express").Router();
 const { readFromFile, readAndAppend, writeToFile } = require("../utils/fs");
 const { v4: uuidv4 } = require("uuid");
 
+//const { readFromFile, readAndAppend, writeToFile } = require("../db/db.json");
+
 // [GET] find all notes
 notes.get("/", (req, res) => {
-  readFromFile("." + process.env.FILE).then((data) =>
-    res.status(200).json(JSON.parse(data))
-  );
+  try {
+    readFromFile("." + process.env.FILE).then((data) =>
+      res.status(200).json(JSON.parse(data))
+    );
+  } catch (err) {
+    console.log("Error Caught: ", err);
+  }
 });
 
 // [POST] create note
