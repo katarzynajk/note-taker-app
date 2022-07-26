@@ -13,16 +13,23 @@ const readFromFile = () => {
   }
 };
 
-/**
- *  Writes data to the JSON file.
- *
- *  @param {string} destination The file to be written to.
- *  @param {object} content The content to be written to the file.
- */
-const writeToFile = (destination, content) =>
+//write to file
+const writeToFile = (title, text) => {
+  fs.writeFileSync(
+    path.join(__dirname, `../db/${title}.json`),
+    JSON.stringify(text)
+  );
+};
+
+//Writes data to the JSON file.
+
+//@param {string} destination The file to be written to.
+//@param {object} content The content to be written to the file.
+
+/*const writeToFile = (destination, content) =>
   fs.writeFile(destination, JSON.stringify(content, null, 4), (err) =>
     err ? console.error(err) : console.info(`\nData written to ${destination}`)
-  );
+  );*/
 
 /**
  *  Reads the data from a given file and appends content.
