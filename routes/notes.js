@@ -7,9 +7,8 @@ const { v4: uuidv4 } = require("uuid");
 // [GET] find all notes
 notes.get("/", (req, res) => {
   try {
-    readFromFile("." + process.env.FILE).then((data) =>
-      res.status(200).json(JSON.parse(data))
-    );
+    const notes = readFromFile();
+    res.status(200).json(notes);
   } catch (err) {
     console.log("Error Caught: ", err);
   }

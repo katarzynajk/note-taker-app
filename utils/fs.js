@@ -1,7 +1,17 @@
 const fs = require("fs");
-const util = require("util");
+const path = require("path");
 
-const readFromFile = util.promisify(fs.readFile);
+//const readFromFile = util.promisify(fs.readFile);
+
+const readFromFile = () => {
+  try {
+    const filePath = path.join(__dirname, `../db/db.json`);
+    const rawData = fs.readFileSync(filePath, "utf8");
+    return JSON.parse(rawData);
+  } catch (error) {
+    console.log(`[ERROR: Failed to read data from file | ${error.message}]`);
+  }
+};
 
 /**
  *  Writes data to the JSON file.
