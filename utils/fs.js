@@ -1,8 +1,8 @@
 const fs = require("fs");
 const path = require("path");
-​
+
 //const readFromFile = util.promisify(fs.readFile);
-​
+
 const readFromFile = () => {
   try {
     const filePath = path.join(__dirname, `../db/db.json`);
@@ -12,7 +12,7 @@ const readFromFile = () => {
     console.log(`[ERROR: Failed to read data from file | ${error.message}]`);
   }
 };
-​
+
 /**
  *  Writes data to the JSON file.
  *
@@ -25,7 +25,7 @@ const writeToFile = (content) => {
     err ? console.error(err) : console.info(`\nData written to ${filePath}`)
   );
 };
-​
+
 /**
  *  Reads the data from a given file and appends content.
  *
@@ -35,12 +35,12 @@ const writeToFile = (content) => {
 const readAndAppend = (content) => {
   const filePath = path.join(__dirname, `../db/db.json`);
   const rawData = fs.readFileSync(filePath, "utf8");
-​
+
   if (rawData !== null) {
     const parsedData = JSON.parse(rawData);
     parsedData.push(content);
     writeToFile(parsedData);
   }
 };
-​
+
 module.exports = { readFromFile, readAndAppend, writeToFile };
